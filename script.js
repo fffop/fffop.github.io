@@ -135,7 +135,7 @@ async function initBlogList() {
       .slice(0, 6)
       .map(
         (post) => `
-          <article class="blog-card">
+          <article class="blog-card" data-window-title="${(post.tags[0] || "POST").toUpperCase()}">
             <p class="paper-tag">${post.tags[0] || "Post"}</p>
             <h3>${post.title}</h3>
             <p>${post.summary}</p>
@@ -149,7 +149,7 @@ async function initBlogList() {
       .join("");
   } catch (error) {
     container.innerHTML = `
-      <article class="blog-card">
+      <article class="blog-card" data-window-title="ERROR.LOG">
         <p class="paper-tag">Unavailable</p>
         <h3>文章列表暂时无法加载</h3>
         <p>你可以稍后刷新，或者直接查看仓库里的 posts 目录。</p>

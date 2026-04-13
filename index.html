@@ -20,6 +20,7 @@
       <nav class="site-nav" aria-label="主导航">
         <a href="#about">关于</a>
         <a href="#logs">日志</a>
+        <a href="#blog">文章</a>
         <a href="#projects">项目</a>
         <a href="#contact">联系</a>
       </nav>
@@ -213,6 +214,46 @@
             <span class="label">Example</span>
             <span class="label">Ready To Replace</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="blog">
+      <div class="shell">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="section-kicker">Blog</p>
+            <h2>文章入口</h2>
+          </div>
+          <p class="section-note">以后每写一篇博客，就在 `posts/` 里新增一个 html 文件，再把首页这里补一张卡片。</p>
+        </div>
+
+        <div class="blog-grid">
+          <article class="blog-card">
+            <p class="paper-tag">Template</p>
+            <h3>第一篇示例文章</h3>
+            <p>
+              我已经放好一个可直接套用的文章页面模板。你以后最简单的做法，
+              就是复制它，改标题、日期和正文，然后推送到 GitHub。
+            </p>
+            <div class="paper-meta">
+              <span>2026.04.13</span>
+              <a href="posts/2026-04-13-first-log.html">打开示例文章</a>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <p class="paper-tag">Workflow</p>
+            <h3>以后怎么发新文章</h3>
+            <p>
+              复制一个已有文章文件，改文件名和内容，再执行 `git add .`、
+              `git commit -m "publish new post"`、`git push`，线上就会自动更新。
+            </p>
+            <div class="log-labels">
+              <span class="label">posts/</span>
+              <span class="label">git push</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>

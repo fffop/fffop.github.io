@@ -20,6 +20,22 @@
 3. 提交后推送到 `main`
 4. GitHub Pages 会自动更新线上页面
 
+## 怎么发一篇新博客
+
+1. 复制 `posts/2026-04-13-first-log.html`
+2. 改成新的文件名，例如 `posts/2026-04-20-my-second-post.html`
+3. 修改文章标题、日期和正文
+4. 回到 `index.html` 的“文章入口”区域，加一个新的文章卡片并链接到新文件
+5. 执行：
+
+```powershell
+git add .
+git commit -m "publish new post"
+git push
+```
+
+推送后，GitHub Pages 会自动把新文章发布到线上。
+
 ## 内容建议
 
 - 把“最近更新”区改成你真实的周报或开发记录

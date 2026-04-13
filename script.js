@@ -131,6 +131,17 @@ async function initBlogList() {
   try {
     const posts = await loadManifest();
 
+    if (!posts.length) {
+      container.innerHTML = `
+        <article class="blog-card" data-window-title="POSTS.DIR">
+          <p class="paper-tag">Empty</p>
+          <h3>还没有发布文章</h3>
+          <p>等你写下第一篇 Markdown 并推送后，这里会自动显示文章列表。</p>
+        </article>
+      `;
+      return;
+    }
+
     container.innerHTML = posts
       .slice(0, 6)
       .map(

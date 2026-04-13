@@ -22,39 +22,10 @@
 
 ## Markdown 发文方式
 
-现在不需要手写文章 HTML。
-
-最简单的方法有两种：
-
-### 方法 1：手动新增
-
-1. 在 `posts/` 目录里新建一个 `.md` 文件
-2. 打开 `posts/manifest.json`，补一条文章信息
-3. 执行：
-
-```powershell
-git add .
-git commit -m "publish new post"
-git push
-```
-
-推送后，GitHub Pages 会自动把新文章发布到线上。
-
-### 方法 2：用脚本自动生成
-
-```powershell
-.\scripts\new-post.ps1 -Title "你的文章标题"
-```
-
-它会自动：
-
-- 创建一篇新的 Markdown 文件
-- 把文章登记到 `posts/manifest.json`
-
-然后你只需要补正文、改一下摘要和标签，再执行 `git add .`、`git commit`、`git push`。
+详细使用方法见 [USAGE.md](./USAGE.md)。
 
 ## 内容建议
 
 - 把“最近更新”区改成你真实的周报或开发记录
 - 把“项目轨迹”区替换成你自己的项目卡片
-- 保留示例时间线，持续往上追加最新一条
+- 把“文章入口”区留给你自己的 Markdown 文章

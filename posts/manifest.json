@@ -1,0 +1,10 @@
+[
+  {
+    "slug": "2026-04-13-first-log",
+    "title": "第一篇 Markdown 示例文章",
+    "date": "2026.04.13",
+    "summary": "一篇用来演示 Markdown 写作与发布流程的示例文章。",
+    "tags": ["Markdown", "Template", "Workflow"],
+    "file": "posts/2026-04-13-first-log.md"
+  }
+]

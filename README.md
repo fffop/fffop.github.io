@@ -20,13 +20,17 @@
 3. 提交后推送到 `main`
 4. GitHub Pages 会自动更新线上页面
 
-## 怎么发一篇新博客
+## Markdown 发文方式
 
-1. 复制 `posts/2026-04-13-first-log.html`
-2. 改成新的文件名，例如 `posts/2026-04-20-my-second-post.html`
-3. 修改文章标题、日期和正文
-4. 回到 `index.html` 的“文章入口”区域，加一个新的文章卡片并链接到新文件
-5. 执行：
+现在不需要手写文章 HTML。
+
+最简单的方法有两种：
+
+### 方法 1：手动新增
+
+1. 在 `posts/` 目录里新建一个 `.md` 文件
+2. 打开 `posts/manifest.json`，补一条文章信息
+3. 执行：
 
 ```powershell
 git add .
@@ -35,6 +39,19 @@ git push
 ```
 
 推送后，GitHub Pages 会自动把新文章发布到线上。
+
+### 方法 2：用脚本自动生成
+
+```powershell
+.\scripts\new-post.ps1 -Title "你的文章标题"
+```
+
+它会自动：
+
+- 创建一篇新的 Markdown 文件
+- 把文章登记到 `posts/manifest.json`
+
+然后你只需要补正文、改一下摘要和标签，再执行 `git add .`、`git commit`、`git push`。
 
 ## 内容建议
 

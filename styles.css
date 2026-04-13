@@ -279,12 +279,27 @@ a:hover {
 .timeline-item p,
 .sample-copy p,
 .section-note,
+.edit-hint,
 .post-lead,
 .markdown-body p,
 .markdown-body li,
 .markdown-body blockquote {
   color: var(--muted);
   line-height: 1.75;
+}
+
+.edit-hint {
+  margin: 8px 0 0;
+  font-size: 0.82rem;
+  color: #4b4b4b;
+}
+
+.edit-hint code {
+  padding: 1px 5px;
+  background: var(--window-mid);
+  border: 1px solid var(--window-dark);
+  color: #7a0000;
+  font-family: Consolas, "Courier New", monospace;
 }
 
 .hero-text {

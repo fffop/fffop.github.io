@@ -1,35 +1,47 @@
-# fffop.github.io
+# Embodied AI Notes
 
-这是 `fffop` 的长期个人 log 站点，使用 GitHub Pages 发布。
+This repository is a static GitHub Pages site styled like a personal growth blog.
 
-站点地址：
+The site is not meant to be only an online resume. It is organized as a long-term blog platform for:
 
-`https://fffop.github.io/`
+- embodied AI notes
+- robotics demos
+- paper reading
+- project logs
+- engineering/debug notes
+- personal growth records
 
-## 当前结构
+## Structure
 
-- `index.html`：主页内容与各个模块结构
-- `styles.css`：页面视觉、排版和响应式样式
-- `script.js`：年份更新与滚动显现效果
-- `.nojekyll`：确保静态文件按原样发布
+- `index.html`: home page layout and built-in modules
+- `post.html`: Markdown post detail page
+- `styles.css`: Stack-like visual style and responsive layout
+- `script.js`: theme toggle, search/filter widgets, blog loading, Markdown rendering
+- `posts/manifest.json`: blog post index
+- `posts/*.md`: blog post Markdown files
+- `scripts/new-post.ps1`: local publishing helper
+- `assets/`: resume, demo GIFs, videos, and other static media
 
-## 后续怎么维护
+## Publish A Post
 
-1. 直接修改 `index.html` 里的日志、项目和联系信息
-2. 如果要调整视觉效果，修改 `styles.css`
-3. 提交后推送到 `main`
-4. GitHub Pages 会自动更新线上页面
+Run this from the repository root:
 
-## Markdown 发文方式
+```powershell
+.\scripts\new-post.ps1 -Title "My New Note" -Category "Growth" -Tags "VLA,Log" -Summary "Short summary here."
+```
 
-详细使用方法见 [USAGE.md](./USAGE.md)。
+Then edit the generated Markdown file in `posts/`, commit, and push:
 
-## 模块怎么改
+```powershell
+git add posts/manifest.json posts/*.md
+git commit -m "publish new post"
+git push
+```
 
-每个模块改哪里，见 [MODULES.md](./MODULES.md)。
+GitHub Pages will update the site after the push.
 
-## 内容建议
+## Static Site Limitation
 
-- 把“最近更新”区改成你真实的周报或开发记录
-- 把“项目轨迹”区替换成你自己的项目卡片
-- 把“文章入口”区留给你自己的 Markdown 文章
+GitHub Pages has no backend by default, so the website cannot accept a real browser-side upload without an external service. The publishing interface here is the static-site workflow:
+
+`new-post.ps1` -> `posts/*.md` -> `posts/manifest.json` -> `git push`

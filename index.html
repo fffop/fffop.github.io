@@ -3,195 +3,246 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Keep Going。">
-  <title>FFFOP | Log</title>
+  <meta name="description" content="A personal growth blog for embodied AI, robotics, reading notes, and project logs.">
+  <title>Embodied AI Notes</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="theme-win98">
-  <header class="site-header">
-    <div class="shell">
-      <a class="brand" href="#top" aria-label="返回首页">
-        <span class="brand-mark">F</span>
-        <span class="brand-text">FFFOP / LOG</span>
-      </a>
-      <nav class="site-nav" aria-label="主导航">
-        <a href="#about">关于</a>
-        <a href="#logs">日志</a>
-        <a href="#blog">文章</a>
-        <a href="#projects">项目</a>
-        <a href="#contact">联系</a>
+<body data-page="home">
+  <div class="layout">
+    <aside class="left-sidebar">
+      <div class="profile">
+        <a class="avatar" href="#home" aria-label="Home" data-route="home">
+          <span class="octicon icon-hubot avatar-icon" aria-hidden="true"></span>
+          <span class="status-dot">AI</span>
+        </a>
+        <a class="site-title" href="#home" data-route="home">Embodied AI Notes</a>
+        <p class="site-subtitle">成长记录 / Demo / Debug / 读论文</p>
+        <div class="social-row" aria-label="social links">
+          <a href="https://github.com/FFFOP" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
+            <span class="octicon icon-github" aria-hidden="true"></span>
+          </a>
+          <a href="assets/resume.pdf" target="_blank" rel="noreferrer" aria-label="CV" title="CV">
+            <span class="octicon icon-file" aria-hidden="true"></span>
+          </a>
+          <a href="mailto:haoyincs@gmail.com" aria-label="Email" title="Email">
+            <span class="octicon icon-mail" aria-hidden="true"></span>
+          </a>
+          <a href="#blog" data-route="blog" aria-label="Blog" title="Blog">
+            <span class="octicon icon-book" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+
+      <nav class="side-nav" aria-label="main navigation">
+        <a class="active" href="#home" data-route="home"><span class="octicon icon-home" aria-hidden="true"></span>Home</a>
+        <a href="#about" data-route="about"><span class="octicon icon-person" aria-hidden="true"></span>About</a>
+        <a href="#embodied-ai" data-route="embodied-ai"><span class="octicon icon-hubot" aria-hidden="true"></span>Embodied AI</a>
+        <a href="#demos" data-route="demos"><span class="octicon icon-video" aria-hidden="true"></span>Demos</a>
+        <a href="#blog" data-route="blog"><span class="octicon icon-book" aria-hidden="true"></span>Blog</a>
       </nav>
-    </div>
-  </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="shell hero-layout">
-        <div class="hero-copy reveal" data-window-title="FFFOP.EXE">
-          <p class="eyebrow">FFFOP / BUILD LOG</p>
-          <h1>把正在做的事，持续留下痕迹。</h1>
-          <p class="edit-hint">直接修改 `index.html` 里的首页 Hero 文案。</p>
-          <p class="hero-text">
-            WildIdea Coming Soon.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#logs">查看最新日志</a>
-            <a class="button button-secondary" href="https://github.com/FFFOP" target="_blank" rel="noreferrer">GitHub</a>
-          </div>
-        </div>
-
-        <aside class="hero-panel reveal" data-window-title="STATUS.DAT">
-          <p class="panel-kicker">CURRENT STATUS</p>
-          <p class="edit-hint">直接修改 `index.html` 里的状态列表。</p>
-          <div class="status-stack">
-            <div class="status-item">
-              <span class="status-label">定位</span>
-              <strong>Builder / Learner / Recorder</strong>
-            </div>
-            <div class="status-item">
-              <span class="status-label">当前主题</span>
-              <strong>网页、自动化、项目整理</strong>
-            </div>
-            <div class="status-item">
-              <span class="status-label">更新方式</span>
-              <strong>短日志 + 阶段总结 + 项目快照</strong>
-            </div>
-            <div class="status-item">
-              <span class="status-label">最近提交</span>
-              <strong>等待你的下一次更新</strong>
-            </div>
-          </div>
-          <a class="mail-link" href="mailto:haoyincs@gmail.com">haoyincs@gmail.com</a>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section section-intro reveal" id="about">
-      <div class="shell intro-grid">
-        <div class="section-heading">
-          <p class="section-kicker">About</p>
-          <p class="edit-hint"></p>
-        </div>
-        <div class="intro-card" data-window-title="ABOUT.TXT">
-          <p>
-            我把这里当作一个公开的进度面板。每次推进一个想法、修完一个细节、
-            或者读完一篇值得记录的内容，都会在这里留下版本化的痕迹。
-          </p>
-          <ul class="about-points">
-            <li>记录我在做什么</li>
-            <li>记录我为什么这么做</li>
-            <li>记录我下一步准备做什么</li>
-          </ul>
+      <div class="left-footer">
+        <button class="dark-mode" id="theme-toggle" type="button" aria-pressed="false">
+          <span class="octicon icon-moon" aria-hidden="true"></span>
+          Dark Mode
+        </button>
+        <div class="copyright">
+          <strong>&copy; <span id="year"></span> EA</strong>
+          <span>GitHub Pages static blog</span>
+          <span>Icons from GitHub Octicons</span>
         </div>
       </div>
-    </section>
+    </aside>
 
-    <section class="section reveal" id="logs">
-      <div class="shell">
-        <div class="section-heading section-heading-row">
-          <div>
-            <p class="section-kicker">Latest Logs</p>
-            <h2>最近更新</h2>
+    <main class="main-content" id="top">
+      <section class="module-panel is-active" id="home" data-panel="home">
+        <article
+          class="post-card route-card"
+          data-card
+          data-module="home"
+          data-year="2026"
+          data-category="Module"
+          data-tags="Embodied AI VLA Robot Vision"
+          data-title="Embodied AI module VLA robot vision"
+          data-open-module="embodied-ai"
+        >
+          <div class="post-body full">
+            <span class="category"><span class="octicon icon-hubot" aria-hidden="true"></span>Module</span>
+            <h2>Embodied AI</h2>
+            <p class="post-summary">VLA 微调、机器人视觉、抓取区域感知、点云重建和机器人框架接入。这里只放主线能力和可追踪记录。</p>
+            <div class="post-meta">
+              <span>VLA</span>
+              <span>Robot Vision</span>
+              <span>Manipulation</span>
+            </div>
           </div>
-          <p class="section-note">这里会显示你手动整理后的近期日志与动态。</p>
-        </div>
-        <p class="edit-hint">直接写法：改 `index.html` 的 `#logs` 区块。这里适合放周报、进度、读书笔记。</p>
+        </article>
 
-        <div class="timeline-card" data-window-title="TIMELINE.LOG">
-          <div class="timeline-head">
-            <p class="section-kicker">Logs</p>
-            <h3>还没有公开日志</h3>
+        <article
+          class="post-card route-card"
+          data-card
+          data-module="home"
+          data-year="2026"
+          data-category="Demo"
+          data-tags="Demo Robot Vision GIF MP4"
+          data-title="Demo target detection grasp region"
+          data-open-module="demos"
+        >
+          <div class="post-body">
+            <span class="category"><span class="octicon icon-video" aria-hidden="true"></span>Demo</span>
+            <h2>目标检测与抓取区域定位</h2>
+            <p class="post-summary">GIF 预览 + 完整 MP4。记录视觉检测、抓取区域和后续末端定位输入，不做广告式包装。</p>
+            <div class="post-meta">
+              <span>GIF preview</span>
+              <span>MP4 full video</span>
+            </div>
           </div>
-          <div class="timeline-list">
-            <article class="timeline-item">
-              <p class="timeline-date">EMPTY</p>
-              <div>
-                <h4>等你填写第一条更新</h4>
-                <p>你可以把最近做的事情、阶段总结、读书笔记或周报整理到这里。</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
+          <img class="post-gif" src="assets/demos/robot-demo-01.gif" alt="目标检测与抓取区域定位 Demo GIF preview">
+        </article>
 
-    <section class="section reveal" id="projects">
-      <div class="shell">
-        <div class="section-heading section-heading-row">
-          <div>
-            <p class="section-kicker">Projects</p>
-            <h2>项目轨迹</h2>
+        <article
+          class="post-card route-card"
+          data-card
+          data-module="home"
+          data-year="2026"
+          data-category="Blog"
+          data-tags="Blog Growth Notes"
+          data-title="Latest posts blog growth notes"
+          data-open-module="blog"
+        >
+          <div class="post-body full">
+            <span class="category muted-category"><span class="octicon icon-book" aria-hidden="true"></span>Blog</span>
+            <h2>Latest Posts</h2>
+            <p class="post-summary">工程记录、论文笔记、阶段复盘会进入博客模块。主页只保留阅读和浏览，不做操作台。</p>
+            <div class="post-meta">
+              <span>posts/*.md</span>
+              <span>manifest driven</span>
+            </div>
           </div>
-          <p class="section-note">这里可以放你的项目、实验页面、仓库链接或长期计划。</p>
-        </div>
-        <p class="edit-hint">直接写法：改 `index.html` 的 `#projects` 区块，替换标题、说明和链接。</p>
+        </article>
+      </section>
 
-        <div class="project-grid">
-          <article class="project-card" data-window-title="PROJECTS.EXE">
-            <p class="project-index">00</p>
-            <h3>项目区暂时为空</h3>
-            <p>
-              等你把自己的项目标题、说明和链接填进来后，这里就会成为主页里最像作品集的部分。
+      <section class="module-panel" id="about" data-panel="about">
+        <article
+          class="post-card"
+          data-card
+          data-module="about"
+          data-year="2026"
+          data-category="About"
+          data-tags="Growth Blog About"
+          data-title="About growth blog embodied AI robotics notes"
+        >
+          <div class="post-body full">
+            <span class="category"><span class="octicon icon-person" aria-hidden="true"></span>About</span>
+            <h2>关于这个博客</h2>
+            <p class="post-summary">
+              这里是个人成长博客，不是简历页。它用来记录具身智能、机器人视觉、论文阅读、项目复盘和工程踩坑。
             </p>
-            <a href="https://github.com/FFFOP" target="_blank" rel="noreferrer">先去 GitHub 看看</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" id="blog">
-      <div class="shell">
-        <div class="section-heading section-heading-row">
-          <div>
-            <p class="section-kicker">Blog</p>
-            <h2>文章入口</h2>
+            <ul class="post-list">
+              <li>把做过的 Demo 留成可追溯记录。</li>
+              <li>把论文阅读和工程问题整理成笔记。</li>
+              <li>把阶段复盘沉淀成下一步行动。</li>
+            </ul>
           </div>
-          <p class="section-note">现在开始可以直接写 Markdown。文章列表会从 `posts/manifest.json` 自动读取。</p>
-        </div>
-        <p class="edit-hint">直接写法：运行 `.\scripts\new-post.ps1 -Title "文章标题"`，然后写 `posts/*.md`。</p>
+        </article>
+      </section>
 
-        <div class="publish-card" data-window-title="PUBLISH.INI">
-          <div>
-            <p class="section-kicker">Markdown Workflow</p>
-            <h3>直接写 `.md`，然后推送</h3>
-            <p>
-              这个站支持 Markdown 文章。使用方法我已经单独写进 `USAGE.md`，
-              你之后只需要写文章、提交、推送就行。
+      <section class="module-panel" id="embodied-ai" data-panel="embodied-ai">
+        <article
+          class="post-card"
+          data-card
+          data-module="embodied-ai"
+          data-year="2026"
+          data-category="Embodied AI"
+          data-tags="VLA Robot Vision Manipulation Point Cloud LeRobot Octo"
+          data-title="Embodied AI VLA robot perception manipulation framework integration"
+        >
+          <div class="post-body full">
+            <span class="category"><span class="octicon icon-hubot" aria-hidden="true"></span>Embodied AI</span>
+            <h2>具身智能主线</h2>
+            <p class="post-summary">
+              当前重点是 VLA 微调、机器人视觉、抓取区域感知、点云重建，以及 LeRobot / Octo 等框架接入。
             </p>
+            <ul class="post-list">
+              <li>VLA 模型微调与跨场景任务泛化。</li>
+              <li>目标识别、分割、点云重建和端侧去噪。</li>
+              <li>执行器末端定位、跟踪和抓取区域感知。</li>
+              <li>非标准协议机器人 SDK 抽象与外设注册。</li>
+            </ul>
+            <div class="post-meta">
+              <span>VLA</span>
+              <span>Robot Vision</span>
+              <span>Manipulation</span>
+            </div>
           </div>
-          <div class="publish-actions">
-            <a class="button button-secondary" href="MODULES.md">模块说明</a>
-            <a class="button button-secondary" href="https://github.com/fffop/fffop.github.io" target="_blank" rel="noreferrer">打开仓库</a>
+        </article>
+      </section>
+
+      <section class="module-panel" id="demos" data-panel="demos">
+        <article
+          class="post-card demo-post"
+          data-card
+          data-module="demos"
+          data-year="2026"
+          data-category="Demo"
+          data-tags="Demo Robot Vision Manipulation Object Detection Grasp Region"
+          data-title="目标检测与抓取区域定位 object detection grasp region robot perception demo"
+        >
+          <div class="post-body">
+            <span class="category"><span class="octicon icon-video" aria-hidden="true"></span>Demo</span>
+            <h2>目标检测与抓取区域定位</h2>
+            <p class="post-summary">
+              Camera-view demo with detection box and grasp-region annotation. It can be used as an input stage for end-effector localization, tracking, and grasp point estimation.
+            </p>
+            <div class="post-meta">
+              <span>GIF preview</span>
+              <span>MP4 full video</span>
+            </div>
           </div>
-        </div>
+          <a class="post-gif-link" href="assets/demos/robot-demo-01-h264.mp4" target="_blank" rel="noreferrer" aria-label="Open full demo video">
+            <img class="post-gif" src="assets/demos/robot-demo-01.gif" alt="目标检测与抓取区域定位 Demo GIF preview">
+            <span>Open MP4</span>
+          </a>
+        </article>
+      </section>
 
-        <div id="blog-post-list" class="blog-grid"></div>
-      </div>
-    </section>
-
-    <section class="section reveal" id="contact">
-      <div class="shell contact-grid">
-        <div class="section-heading">
-          <p class="section-kicker">Contact</p>
-          <h2>保持连接</h2>
-          <p class="edit-hint">直接写法：改 `index.html` 的 `#contact` 区块。</p>
+      <section class="module-panel blog-section" id="blog" data-panel="blog">
+        <div class="section-heading-card">
+          <span class="category muted-category"><span class="octicon icon-book" aria-hidden="true"></span>Blog</span>
+          <h2>Latest Posts</h2>
+          <p>这里展示 Markdown 博客文章，用来记录阅读、项目、Debug 和阶段复盘。</p>
         </div>
-        <div class="contact-card" data-window-title="CONTACT.VCF">
-          <p>GitHub：<a href="https://github.com/FFFOP" target="_blank" rel="noreferrer">@FFFOP</a></p>
-          <p>邮箱：<a href="mailto:haoyincs@gmail.com">haoyincs@gmail.com</a></p>
-          <p>如果你想看我最近在做什么，这个页面会持续更新。</p>
-        </div>
-      </div>
-    </section>
-  </main>
+        <div id="blog-list" class="blog-list" aria-live="polite"></div>
+      </section>
 
-  <footer class="site-footer">
-    <div class="shell footer-inner">
-      <p>&copy; <span id="year"></span> FFFOP</p>
-      <a href="mailto:haoyincs@gmail.com">haoyincs@gmail.com</a>
-    </div>
-  </footer>
+      <p class="empty-state" id="empty-state" hidden>No matching posts.</p>
+    </main>
+
+    <aside class="right-sidebar">
+      <section class="search-card">
+        <label for="search"><span class="octicon icon-search" aria-hidden="true"></span>Search</label>
+        <div class="search-input">
+          <input id="search" type="search" placeholder="Type something..." autocomplete="off">
+          <button id="clear-search" type="button" aria-label="Clear search">
+            <span class="octicon icon-x" aria-hidden="true"></span>
+          </button>
+        </div>
+        <p class="search-status" id="search-status">Showing current module.</p>
+      </section>
+
+      <section class="widget">
+        <div class="widget-icon"><span class="octicon icon-archive" aria-hidden="true"></span></div>
+        <h2>ARCHIVES</h2>
+        <div id="archive-list" class="widget-list"></div>
+      </section>
+
+      <section class="widget">
+        <div class="widget-icon"><span class="octicon icon-tag" aria-hidden="true"></span></div>
+        <h2>TAGS</h2>
+        <div id="tag-list" class="pill-list"></div>
+      </section>
+    </aside>
+  </div>
 
   <script src="script.js"></script>
 </body>

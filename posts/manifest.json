@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "slug": "2026-06-08-diffusion-policy-action-generation",
+    "title": "Diffusion Policy: 为什么机器人动作适合用生成模型来做",
+    "date": "2026.06.08",
+    "category": "Paper Reading",
+    "summary": "从动作多模态、动作序列和 receding horizon control 三个角度理解 Diffusion Policy。",
+    "tags": ["Diffusion Policy", "Imitation Learning", "Action Generation", "Manipulation"],
+    "readingTime": "4 minute read",
+    "file": "posts/2026-06-08-diffusion-policy-action-generation.md"
+  },
+  {
+    "slug": "2026-06-08-openvla-as-a-practical-baseline",
+    "title": "OpenVLA: 更适合作为入门基线的开源 VLA",
+    "date": "2026.06.08",
+    "category": "Paper Reading",
+    "summary": "OpenVLA 的价值不只是模型开源，而是给 VLA 数据格式、微调和部署提供了一个可操作入口。",
+    "tags": ["OpenVLA", "VLA", "Fine-tuning", "Robot Data"],
+    "readingTime": "4 minute read",
+    "file": "posts/2026-06-08-openvla-as-a-practical-baseline.md"
+  },
+  {
+    "slug": "2026-06-08-pi0-flow-action-model",
+    "title": "π0: 用 flow matching 做连续机器人动作",
+    "date": "2026.06.08",
+    "category": "Paper Reading",
+    "summary": "π0 把预训练 VLM 和连续动作专家接起来，代表 VLA 从离散动作 token 走向更细腻的动作生成。",
+    "tags": ["pi0", "Flow Matching", "VLA", "Continuous Action"],
+    "readingTime": "4 minute read",
+    "file": "posts/2026-06-08-pi0-flow-action-model.md"
+  },
+  {
+    "slug": "2026-06-08-dreamerv3-world-model-note",
+    "title": "DreamerV3: World Model 对具身智能到底有什么用",
+    "date": "2026.06.08",
+    "category": "Paper Reading",
+    "summary": "DreamerV3 不是 VLA 论文，但它提供了理解 imagination rollout、latent dynamics 和策略学习的关键参照。",
+    "tags": ["DreamerV3", "World Model", "Reinforcement Learning", "Planning"],
+    "readingTime": "4 minute read",
+    "file": "posts/2026-06-08-dreamerv3-world-model-note.md"
+  },
+  {
+    "slug": "2026-06-08-motus-unified-latent-action-world-model",
+    "title": "Motus: 把 VLA、World Model 和 latent action 放进一个系统",
+    "date": "2026.06.08",
+    "category": "Paper Reading",
+    "summary": "Motus 最值得看的地方是 latent action：它试图从没有 action label 的视频里抽取可迁移的运动先验。",
+    "tags": ["Motus", "Latent Action", "World Model", "Video Prediction", "VLA"],
+    "readingTime": "5 minute read",
+    "file": "posts/2026-06-08-motus-unified-latent-action-world-model.md"
+  }
+]

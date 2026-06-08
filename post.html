@@ -3,21 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FFFOP 的 Markdown 博客文章。">
-  <title>Post | FFFOP</title>
+  <meta name="description" content="Blog post detail page.">
+  <title>Post | Embodied AI Notes</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="theme-win98 post-body">
-  <main class="post-main">
-    <article class="post-article" data-window-title="POSTVIEW.EXE">
-      <a class="post-back" href="./index.html#blog">返回首页</a>
-      <p class="eyebrow" id="post-date">POST</p>
-      <h1 id="post-title">加载中...</h1>
-      <p class="post-lead" id="post-summary">正在读取文章内容。</p>
-      <div id="post-tags" class="log-labels"></div>
-      <div id="post-content" class="markdown-body"></div>
-    </article>
-  </main>
+<body data-page="post">
+  <div class="layout post-layout">
+    <aside class="left-sidebar">
+      <div class="profile">
+        <a class="avatar" href="./index.html" aria-label="Home">
+          <span class="octicon icon-hubot avatar-icon" aria-hidden="true"></span>
+          <span class="status-dot">AI</span>
+        </a>
+        <a class="site-title" href="./index.html">Embodied AI Notes</a>
+        <p class="site-subtitle">A personal growth blog.</p>
+      </div>
+      <nav class="side-nav" aria-label="post navigation">
+        <a href="./index.html"><span class="octicon icon-home" aria-hidden="true"></span>Home</a>
+        <a href="./index.html#blog"><span class="octicon icon-book" aria-hidden="true"></span>Blog</a>
+      </nav>
+      <div class="left-footer">
+        <button class="dark-mode" id="theme-toggle" type="button" aria-pressed="false">
+          <span class="octicon icon-moon" aria-hidden="true"></span>
+          Dark Mode
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <article class="post-card post-detail">
+        <div class="post-body full">
+          <a class="post-back" href="./index.html#blog"><span class="octicon icon-book" aria-hidden="true"></span>Back to blog</a>
+          <span class="category" id="post-category">Post</span>
+          <h1 id="post-title">Loading...</h1>
+          <p class="post-summary" id="post-summary">Reading post metadata.</p>
+          <div class="post-meta" id="post-meta"></div>
+          <div class="markdown-body" id="post-content"></div>
+        </div>
+      </article>
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>

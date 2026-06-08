@@ -4,7 +4,13 @@ param(
 
   [string]$Slug = "",
 
-  [string]$Date = (Get-Date -Format "yyyy-MM-dd")
+  [string]$Date = (Get-Date -Format "yyyy-MM-dd"),
+
+  [string]$Category = "Growth",
+
+  [string]$Tags = "Log",
+
+  [string]$Summary = ""
 )
 
 function New-SafeSlug {
@@ -21,9 +27,21 @@ function New-SafeSlug {
   return $slug
 }
 
+function Get-TagArray {
+  param([string]$Value)
+
+  return @(
+    $Value -split "," |
+      ForEach-Object { $_.Trim() } |
+      Where-Object { -not [string]::IsNullOrWhiteSpace($_) }
+  )
+}
+
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $postsDir = Join-Path $repoRoot "posts"
 $manifestPath = Join-Path $postsDir "manifest.json"
+
+New-Item -ItemType Directory -Force -Path $postsDir | Out-Null
 
 if ([string]::IsNullOrWhiteSpace($Slug)) {
   $Slug = New-SafeSlug -Value $Title
@@ -32,47 +50,67 @@ if ([string]::IsNullOrWhiteSpace($Slug)) {
 $displayDate = $Date -replace "-", "."
 $fileName = "$Date-$Slug.md"
 $filePath = Join-Path $postsDir $fileName
+$manifestSlug = "$Date-$Slug"
 
-if (Test-Path $filePath) {
+if (Test-Path -LiteralPath $filePath) {
   throw "Post already exists: $filePath"
+}
+
+if ([string]::IsNullOrWhiteSpace($Summary)) {
+  $Summary = "Draft note for $Title."
+}
+
+$tagArray = Get-TagArray -Value $Tags
+if ($tagArray.Count -eq 0) {
+  $tagArray = @("Log")
 }
 
 $template = @"
 # $Title
 
-这里写开头。
+## What I did
 
-## 我做了什么
+Write the concrete work here.
 
-写你的过程。
+## What I learned
 
-## 为什么这么做
+Write the lesson, bug, paper note, or project reflection here.
 
-写你的判断。
+## Next step
 
-## 下一步
-
-写你后面准备做什么。
+Write the next action here.
 "@
 
 Set-Content -LiteralPath $filePath -Value $template -Encoding UTF8
 
 $manifest = @()
-if (Test-Path $manifestPath) {
-  $manifest = Get-Content -Raw -Encoding UTF8 $manifestPath | ConvertFrom-Json
+if (Test-Path -LiteralPath $manifestPath) {
+  $rawManifest = Get-Content -Raw -Encoding UTF8 -LiteralPath $manifestPath
+  if (-not [string]::IsNullOrWhiteSpace($rawManifest)) {
+    $parsed = $rawManifest | ConvertFrom-Json
+    if ($parsed) {
+      $manifest = @($parsed)
+    }
+  }
 }
 
 $newEntry = [PSCustomObject]@{
-  slug = "$Date-$Slug"
+  slug = $manifestSlug
   title = $Title
   date = $displayDate
-  summary = "请把这段摘要改成你的文章简介。"
-  tags = @("New", "Draft")
+  category = $Category
+  summary = $Summary
+  tags = $tagArray
+  readingTime = "1 minute read"
   file = "posts/$fileName"
 }
 
 $updatedManifest = @($newEntry) + @($manifest)
-$updatedManifest | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath $manifestPath -Encoding UTF8
+$updatedManifest |
+  ConvertTo-Json -Depth 6 |
+  Set-Content -LiteralPath $manifestPath -Encoding UTF8
 
-Write-Output "Created $fileName"
-Write-Output "Update the summary/tags in posts/manifest.json, then run git add . ; git commit ; git push"
+Write-Output "Created: posts/$fileName"
+Write-Output "Updated: posts/manifest.json"
+Write-Output "Preview locally: python -m http.server 8000 --bind 127.0.0.1"
+Write-Output "Publish: git add posts/manifest.json posts/$fileName ; git commit -m `"publish $Slug`" ; git push"

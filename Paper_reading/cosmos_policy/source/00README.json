@@ -1,0 +1,25 @@
+{
+   "sources" : [
+      {
+         "usage" : "toplevel",
+         "filename" : "main_conference.tex"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "main_conference.bbl"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "main_conference.bib"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "main_conference.bst"
+      }
+   ],
+   "spec_version" : 1,
+   "texlive_version" : "2025",
+   "process" : {
+      "compiler" : "pdflatex"
+   }
+}

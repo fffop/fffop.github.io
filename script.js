@@ -360,6 +360,10 @@ function bindSearch() {
 function renderInlineMarkdown(input) {
   return escapeHtml(input)
     .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(
+      /!\[([^\]]*)\]\(([^)\s]+)(?:\s+["'][^)]*["'])?\)/g,
+      '<img src="$2" alt="$1" loading="lazy">'
+    )
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>')
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
     .replace(/\*([^*]+)\*/g, "<em>$1</em>");
@@ -377,7 +381,19 @@ function renderMarkdown(markdown) {
 
       if (trimmed.startsWith("```") && trimmed.endsWith("```")) {
         const lines = trimmed.split("\n");
+        const language = lines[0].slice(3).trim().toLowerCase();
+        if (["math", "latex", "tex"].includes(language)) {
+          return `<div class="math-display">\\[${escapeHtml(lines.slice(1, -1).join("\n"))}\\]</div>`;
+        }
         return `<pre><code>${escapeHtml(lines.slice(1, -1).join("\n"))}</code></pre>`;
+      }
+
+      if (
+        (trimmed.startsWith("$$") && trimmed.endsWith("$$")) ||
+        (trimmed.startsWith("\\[") && trimmed.endsWith("\\]")) ||
+        /^\\begin\{(?:equation|align|alignat|gather|multline|matrix|pmatrix|bmatrix|vmatrix|cases)\*?\}/.test(trimmed)
+      ) {
+        return `<div class="math-display">${escapeHtml(trimmed)}</div>`;
       }
 
       if (/^#{1,6}\s/.test(trimmed)) {
@@ -409,6 +425,20 @@ function renderMarkdown(markdown) {
       return `<p>${renderInlineMarkdown(trimmed).replace(/\n/g, "<br>")}</p>`;
     })
     .join("");
+}
+
+async function typesetMath(element) {
+  if (!window.MathJax) {
+    return;
+  }
+
+  if (window.MathJax.startup?.promise) {
+    await window.MathJax.startup.promise;
+  }
+
+  if (typeof window.MathJax.typesetPromise === "function") {
+    await window.MathJax.typesetPromise([element]);
+  }
 }
 
 async function initHomePage() {
@@ -482,6 +512,7 @@ async function initPostPage() {
       <span>${escapeHtml(post.tags.join(" / "))}</span>
     `;
     contentTarget.innerHTML = renderMarkdown(markdown);
+    await typesetMath(contentTarget);
   } catch (error) {
     titleTarget.textContent = "Post failed to load";
     summaryTarget.textContent = "Check posts/manifest.json and the Markdown file path.";

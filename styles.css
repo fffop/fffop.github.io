@@ -769,6 +769,27 @@ p {
   border-left: 4px solid var(--accent);
 }
 
+.markdown-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 18px auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.markdown-body .math-display,
+.markdown-body mjx-container[display="true"] {
+  max-width: 100%;
+  margin: 20px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body mjx-container {
+  color: var(--text);
+}
+
 @media (max-width: 1160px) {
   .layout {
     grid-template-columns: 190px minmax(0, 1fr);

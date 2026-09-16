@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hao Yin</title>
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic" rel="stylesheet">
+<style>
+  :root {
+    --link: #1772d0;
+    --muted: #767676;
+    --rule: #e6e6e6;
+  }
+
+  html { background: #fff; }
+  body {
+    font-family: "Titillium Web", Verdana, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #000;
+    background: #fff;
+    margin: 0;
+    padding: 0 20px;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 0 60px;
+  }
+
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ---------- 页头 ---------- */
+  .pagename {
+    font-size: 38px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 0 14px;
+    line-height: 1.2;
+  }
+  .toplinks {
+    text-align: center;
+    margin: 0 0 32px;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+
+  /* ---------- 简介：左图右文 ---------- */
+  .intro {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  .photo {
+    width: 215px;
+    height: 215px;
+    border-radius: 15px;
+    object-fit: cover;
+    background: #000;
+    display: block;
+  }
+  .photo-caption {
+    width: 215px;
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .intro p { margin: 0 0 14px; line-height: 1.55; }
+  .intro p:last-child { margin-bottom: 0; }
+
+  /* ---------- 区块 ---------- */
+  .section { margin-top: 42px; }
+  .sectionhead {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+
+  /* News */
+  .news { line-height: 1.7; }
+  .news div { margin-bottom: 4px; }
+  .news .date { color: var(--muted); }
+
+  /* 条目通用 */
+  .entry { margin-bottom: 22px; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry .title { font-weight: 600; }
+  .entry .meta { color: var(--muted); font-size: 15px; margin: 2px 0 4px; }
+  .entry .desc { line-height: 1.55; }
+  .entry ul { margin: 6px 0 0; padding-left: 20px; line-height: 1.55; }
+  .entry ul li { margin-bottom: 5px; }
+
+  /* Skills */
+  .skill { margin-bottom: 11px; line-height: 1.55; }
+  .skill:last-child { margin-bottom: 0; }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* ---------- 中英切换 ---------- */
+  html[data-lang="en"] .lang-zh { display: none; }
+  html[data-lang="zh"] .lang-en { display: none; }
+
+  @media (max-width: 700px) {
+    .intro { grid-template-columns: 1fr; gap: 18px; }
+    .photo, .photo-caption { width: 100%; max-width: 260px; }
+    .photo { height: auto; aspect-ratio: 1 / 1; }
+    .pagename { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="pagename">Hao Yin 「尹浩」</div>
+
+  <div class="toplinks">
+    | <a href="mailto:haoyincs@gmail.com">Email</a>
+    | <a href="https://github.com/fffop" target="_blank">Github</a>
+    | <a href="https://doi.org/10.23919/PIERS-Fall62445.2025.11394068" target="_blank">Publication</a>
+    | <a href="#" id="langtoggle"><span class="lang-en">中文</span><span class="lang-zh">English</span></a> |
+  </div>
+
+  <!-- ===================== 简介 ===================== -->
+  <div class="intro">
+    <div>
+      <img class="photo" src="static/images/photo.jpg" alt="Hao Yin with an INOVANCE humanoid robot powered by FMC³Robotics">
+      <div class="photo-caption">
+        <span class="lang-en">With an INOVANCE humanoid robot, powered by FMC³Robotics.</span><span class="lang-zh">与汇川 INOVANCE 人形机器人，powered by FMC³Robotics。</span>
+      </div>
+    </div>
+
+    <div>
+      <p class="lang-en">I am an undergraduate student in Software Engineering at <a href="https://www.just.edu.cn" target="_blank">Jiangsu University of Science and Technology</a>, working on embodied AI and robot vision.</p>
+      <p class="lang-en">I am currently an Embodied AI R&amp;D intern at <b>FMC³Robotics</b>, where I build multimodal teleoperation and data-collection pipelines across ALOHA dual-arm systems, Fourier GR2 humanoids and dexterous hands, and fine-tune and deploy embodied policies such as Pi-policy and GR00T on real hardware.</p>
+      <p class="lang-en"><b>Research Interest:</b> Embodied AI and robot learning, teleoperation and demonstration data collection, open-world visual perception and hand-eye calibration, and time-series forecasting with physics-informed and ensemble models.</p>
+      <p class="lang-en"><b>Education:</b> B.Eng. in Software Engineering, Jiangsu University of Science and Technology, Sep 2023 – Present. Coursework: C++, Data Structures, Operating Systems, Computer Organization, Computer Networks, Data Mining, Machine Learning, Computer Vision.</p>
+      <p class="lang-en"><b>Email:</b> haoyincs@gmail.com</p>
+
+      <p class="lang-zh">我是<a href="https://www.just.edu.cn" target="_blank">江苏科技大学</a>软件工程专业本科生，研究方向是具身智能与机器人视觉。</p>
+      <p class="lang-zh">目前在<b>费米机器人（嘉兴）有限公司</b>担任具身智能研发实习生，围绕 ALOHA 双臂系统、傅里叶 GR2 人形机器人与灵巧手，搭建多模态遥操作与数据采集链路，并在真机上完成 Pi-policy、GR00T 等具身策略的微调与部署。</p>
+      <p class="lang-zh"><b>研究方向：</b>具身智能与机器人学习、遥操作与示范数据采集、开放世界视觉感知与手眼标定，以及基于物理约束与集成学习的时序预测。</p>
+      <p class="lang-zh"><b>教育背景：</b>江苏科技大学 软件工程 学士，2023 年 9 月 – 至今。主修课程：C++语言、数据结构、操作系统、计算机组成原理、计算机网络、数据挖掘、机器学习、计算机视觉。</p>
+      <p class="lang-zh"><b>邮箱：</b>haoyincs@gmail.com</p>
+    </div>
+  </div>
+
+  <!-- ===================== News ===================== -->
+  <div class="section">
+    <div class="sectionhead"><span class="lang-en">News</span><span class="lang-zh">动态</span></div>
+    <div class="news">
+      <div><span class="date">[02/2026]</span> <span class="lang-en">Started as an Embodied AI R&amp;D intern at FMC³Robotics.</span><span class="lang-zh">入职费米机器人（嘉兴）有限公司，担任具身智能研发实习生。</span></div>
+      <div><span class="date">[08/2025]</span> <span class="lang-en">Second Prize (Jiangsu Province) at the National Undergraduate Electronic Design Contest (TI Cup).</span><span class="lang-zh">获全国大学生电子设计大赛（TI杯）江苏省二等奖。</span></div>
+      <div><span class="date">[11/2024]</span> <span class="lang-en">Second Prize (East China Division) at the 19th National Undergraduate Intelligent Vehicle Competition.</span><span class="lang-zh">获第十九届全国大学生智能汽车竞赛华东赛区二等奖。</span></div>
+    </div>
+  </div>
+
+  <!-- ===================== Research ===================== -->
+  <div class="section">
+    <div class="sectionhead"><span class="lang-en">Research</span><span class="lang-zh">科研经历</span></div>
+
+    <div class="entry">
+      <div class="title"><span class="lang-en">Photovoltaic Power Forecasting with a Stacking-Ensemble Hybrid Model</span><span class="lang-zh">基于 Stacking 集成混合模型的光伏发电预测研究</span></div>
+      <div class="meta"><b><span class="lang-en">Hao Yin</span><span class="lang-zh">尹浩</span></b><span class="lang-en"> (first author) · PIERS 2025 · Sep 2025 – Mar 2026</span><span class="lang-zh">（第一作者） · PIERS 2025 国际学术会议 · 2025.09 – 2026.03</span></div>
+      <div class="desc">
+        <span class="lang-en">Applied Sin/Cos cyclical encoding to timestamps and extracted second-order interaction features; built a stacking ensemble over XGBoost, LightGBM and TabNet base learners with Ridge regression as the meta-learner.</span>
+        <span class="lang-zh">对时间戳进行 Sin/Cos 周期性变换并提取二阶交互特征；以 XGBoost、LightGBM、TabNet 为基学习器，引入 Ridge 回归进行 Stacking 融合。</span>
+        <br><a href="https://doi.org/10.23919/PIERS-Fall62445.2025.11394068" target="_blank">DOI</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===================== Experience ===================== -->
+  <div class="section">
+    <div class="sectionhead"><span class="lang-en">Experience</span><span class="lang-zh">实习经历</span></div>
+    <div class="entry">
+      <div class="title"><span class="lang-en">Embodied AI R&amp;D Intern, FMC³Robotics</span><span class="lang-zh">具身智能研发岗（实习生），费米机器人（嘉兴）有限公司</span></div>
+      <div class="meta"><span class="lang-en">Feb 2026 – Present</span><span class="lang-zh">2026.02 – 至今</span></div>
+      <ul>
+        <li><b><span class="lang-en">Multimodal teleoperation &amp; data collection.</span><span class="lang-zh">多模态遥操作数据采集。</span></b>
+          <span class="lang-en">Built a Pico/Quest VR-controller teleoperation pipeline over ALOHA dual-arm, AgileX Piper and other manipulators; designed a low-latency data stream and independently ran expert trajectory collection for fine-grained tasks such as part grasping, producing a standardised embodied-AI training dataset.</span>
+          <span class="lang-zh">依托 ALOHA 双臂系统、松灵 Piper 及求之机械臂，打通基于 Pico/Quest VR 控制器的多模态遥操作控制链路；设计低延迟数据流，独立负责工件抓取等精细任务的专家轨迹采集，构建标准具身智能训练数据集。</span></li>
+        <li><b><span class="lang-en">Anthropomorphic dexterous-hand retargeting.</span><span class="lang-zh">灵巧手仿人运动映射。</span></b>
+          <span class="lang-en">Performed gesture recognition and keypoint capture with data gloves, and built a multi-DoF kinematic solver and real-time retargeting mechanism mapping hand pose onto the BAAI OmniHand dexterous hand.</span>
+          <span class="lang-zh">基于宇叠数据手套进行手势识别与关键点捕捉，构建手部姿态到智源 OmniHand 灵巧手的多自由度运动学解算与实时重定向（Retargeting）映射机制。</span></li>
+        <li><b><span class="lang-en">Policy fine-tuning &amp; async inference deployment.</span><span class="lang-zh">策略微调与多线程异步推理部署。</span></b>
+          <span class="lang-en">Fine-tuned Pi-policy and GR00T under LeRobot and JAX on cross-embodiment expert demonstrations. To fix latency stalls when deploying large models on real robots, designed an asynchronous inference pipeline decoupling visual capture, policy inference and hardware execution across threads/processes, stabilising the control frequency.</span>
+          <span class="lang-zh">在 LeRobot 框架与 JAX 环境下，利用跨本体专家示范数据对 Pi-policy 及 GR00T 具身策略进行微调调优。为解决大模型真机部署的延迟卡顿问题，设计并实现异步推理管线，将视觉摄取、策略推理与底层硬件执行多线程/多进程解耦，确保控制频率稳定。</span></li>
+        <li><b><span class="lang-en">SAM-DINO open-world part tracking.</span><span class="lang-zh">SAM-DINO 工件实时追踪定位。</span></b>
+          <span class="lang-en">For highly variable, unstructured industrial parts, built a Grounding DINO + SAM open-world vision pipeline enabling text-prompted zero-shot recognition, segmentation and point-cloud reconstruction, closing the loop on real-time 3D tracking and pose estimation.</span>
+          <span class="lang-zh">针对工业工件多变、非结构化的特性，构建 Grounding DINO + SAM 的开放世界视觉管线；实现基于文本提示的零样本高精度识别、分割与点云重建，打通工件的实时 3D 追踪与位姿估计。</span></li>
+        <li><b><span class="lang-en">Hand-eye calibration &amp; SDK abstraction.</span><span class="lang-zh">手眼标定与 SDK 接口抽象。</span></b>
+          <span class="lang-en">Calibrated depth cameras against robot base frames on ALOHA and several manipulators for sub-millimetre absolute spatial accuracy; abstracted SDK interfaces for non-standard-protocol robots and registered ROS drivers for peripherals.</span>
+          <span class="lang-zh">运用传统手眼标定算法，在 ALOHA 及多款机械臂系统上校准深度相机与机器人基坐标系的空间相对位置，提供亚毫米级绝对空间感知精度；完成非标准协议机器人的 SDK 接口抽象及多种外设底层的 ROS 驱动注册。</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== Skills ===================== -->
+  <div class="section">
+    <div class="sectionhead"><span class="lang-en">Technical Skills</span><span class="lang-zh">专业技能</span></div>
+    <div class="skill"><b><span class="lang-en">Robot platforms &amp; hardware.</span><span class="lang-zh">机器人本体与硬件调优。</span></b>
+      <span class="lang-en">ALOHA dual-arm, Fourier GR2 humanoid, AgileX Piper and other manipulators; multimodal hardware loop with data gloves and the BAAI OmniHand dexterous hand.</span>
+      <span class="lang-zh">ALOHA（双臂系统）、傅里叶 GR2（仿人人形机器人）、松灵 Piper、求之机械臂等硬件本体的联合调试与控制；宇叠数据手套与智源 OmniHand 灵巧手的多模态硬件闭环。</span></div>
+    <div class="skill"><b><span class="lang-en">Data collection &amp; teleoperation.</span><span class="lang-zh">数据采集与遥操作。</span></b>
+      <span class="lang-en">Teleoperation systems driven by VR (Pico / Meta Quest) and data gloves; high-throughput collection and cleaning of expert trajectories into standardised embodied-AI datasets.</span>
+      <span class="lang-zh">基于 VR（Pico / Meta Quest）及数据手套的遥操作系统开发；具备高效采集、清洗专家操作轨迹并转化为标准具身智能数据集的能力。</span></div>
+    <div class="skill"><b><span class="lang-en">Embodied policies &amp; training.</span><span class="lang-zh">具身智能策略与训练。</span></b>
+      <span class="lang-en">LeRobot framework and the JAX ecosystem; end-to-end fine-tuning, engineering deployment and closed-loop real-robot testing of policies such as Pi-policy and GR00T.</span>
+      <span class="lang-zh">LeRobot 具身开源框架及 JAX 生态；Pi-policy、GR00T 等主流具身智能策略的完整微调训练、工程化部署与真机闭环测试经验。</span></div>
+    <div class="skill"><b><span class="lang-en">Robot vision &amp; hand-eye calibration.</span><span class="lang-zh">机器人视觉与手眼标定。</span></b>
+      <span class="lang-en">Classical hand-eye calibration (Eye-in-Hand / Eye-to-Hand); Grounding DINO + SAM open-world detection and segmentation pipelines; ROS / ROS2.</span>
+      <span class="lang-zh">传统手眼标定算法（Eye-in-Hand / Eye-to-Hand）；Grounding DINO + SAM（Segment Anything）开放世界检测分割管线；熟悉 ROS / ROS2。</span></div>
+    <div class="skill"><b><span class="lang-en">Machine learning &amp; data mining.</span><span class="lang-zh">经典机器学习与数据挖掘。</span></b>
+      <span class="lang-en">PyTorch; XGBoost, LightGBM, TabNet and stacking ensembles.</span>
+      <span class="lang-zh">PyTorch 框架；XGBoost、LightGBM、TabNet 及 Stacking 集成学习。</span></div>
+  </div>
+
+  <!-- ===================== Awards ===================== -->
+  <div class="section">
+    <div class="sectionhead"><span class="lang-en">Awards</span><span class="lang-zh">竞赛奖项</span></div>
+    <div class="entry">
+      <div class="title"><span class="lang-en">Second Prize, Jiangsu Province — National Undergraduate Electronic Design Contest (TI Cup)</span><span class="lang-zh">全国大学生电子设计大赛（TI杯）· 江苏省二等奖</span></div>
+      <div class="meta">2025.08</div>
+      <div class="desc"><span class="lang-en">Developed object detection and tracking on the K230 vision compute platform for low-latency real-time tracking of fast-moving targets.</span><span class="lang-zh">基于 K230 视觉算力平台开发目标检测与追踪算法，实现对高速运动靶标的低延迟实时追踪。</span></div>
+    </div>
+    <div class="entry">
+      <div class="title"><span class="lang-en">Second Prize, East China Division — 19th National Undergraduate Intelligent Vehicle Competition</span><span class="lang-zh">第十九届全国大学生智能汽车竞赛 · 华东赛区二等奖</span></div>
+      <div class="meta">2024.11</div>
+      <div class="desc"><span class="lang-en">Built a ROS-based autonomous lane-following and obstacle-avoidance system on the Horizon X3 board, covering image preprocessing, lane detection and PID control.</span><span class="lang-zh">基于 ROS 在地平线 X3 开发板上构建了包含图像预处理、车道线识别、PID 控制的自动驾驶巡线与避障系统。</span></div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 Hao Yin
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    root.setAttribute('data-lang', saved === 'zh' ? 'zh' : 'en');
+
+    document.getElementById('langtoggle').addEventListener('click', function (e) {
+      e.preventDefault();
+      var next = root.getAttribute('data-lang') === 'en' ? 'zh' : 'en';
+      root.setAttribute('data-lang', next);
+      try { localStorage.setItem('lang', next); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>

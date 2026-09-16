@@ -29,7 +29,7 @@ python3 -m http.server 8000
 
 - GitHub：`github.com/fffop`
 - 实习：费米机器人，2026.02 – 至今
-- 论文 DOI：`10.23919/PIERS-Fall62445.2025.11394068`（解析到 IEEE Xplore 11394068，已验证）
+- 论文 DOI：[IEEE Xplore 11394068](https://ieeexplore.ieee.org/document/11394068)（直链，不走 doi.org）
 
 ## 版式说明
 
